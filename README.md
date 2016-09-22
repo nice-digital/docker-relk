@@ -1,6 +1,11 @@
 # Docker RELK stack
 
-RELK stack (Rabbitmq, Elastic, Logstash, Kibana).  RabbitMQ is configured with an example exchange and queue together with a bindings. Logstash subscribes to this queue and sends messages onto elastic.  Then you can see messages appear in kibana.
+RELK stack (Rabbitmq, Elastic, Logstash, Kibana) powered by docker compose.
+RabbitMQ is configured with an exchange and queue together with a binding. Logstash subscribes to this queue and sends messages onto elastic.  Then you can see messages appear in kibana.
+
+This project has taken influence from these two great github repos which deserve credit:
+[docker-elk](https://github.com/deviantony/docker-elk)
+[docker-rabbitmq-example](https://github.com/jonathandandries/docker-rabbitmq-example)
 
 See the subfolders for specific configuration of each component
 
@@ -19,6 +24,11 @@ docker-compose up
 Run stack up in the backgroung
 ```
 docker-compose up -d
+```
+
+Now send messages to the AMQP URI:
+```
+amqp://localhost:5672
 ```
 
 #### Kibana initial setup

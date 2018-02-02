@@ -1,10 +1,11 @@
-FROM kibana:latest
+FROM kibana:5.6.6
 
 RUN apt-get update && apt-get install -y netcat
 
-COPY entrypoint.sh /tmp/entrypoint.sh
-RUN chmod +x /tmp/entrypoint.sh
+COPY ./config/kibana.yml /opt/kibana/config/
 
-RUN kibana plugin --install elastic/sense
+COPY entrypoint.sh /tmp/entrypoint.sh
+
+RUN chmod +x /tmp/entrypoint.sh
 
 CMD ["/tmp/entrypoint.sh"]

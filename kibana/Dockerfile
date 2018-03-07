@@ -8,4 +8,4 @@ COPY entrypoint.sh /tmp/entrypoint.sh
 
 RUN chmod +x /tmp/entrypoint.sh
 
-CMD ["/tmp/entrypoint.sh"]
+ENTRYPOINT ["/bin/bash", "/tmp/entrypoint.sh"]
